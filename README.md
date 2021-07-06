@@ -1,18 +1,6 @@
-# 🏙 Tokyo Night
+# 🏙Bogster
 
-A dark and light Neovim theme written in Lua ported from the Visual Studio Code [bogster](https://github.com/enkia/tokyo-night-vscode-theme) theme. Includes extra themes for Kitty, Alacritty, iTerm and Fish.
-
-## Storm
-
-![image](https://user-images.githubusercontent.com/292349/115295095-3a9e5080-a10e-11eb-9aed-6054488c46ce.png)
-
-## Night
-
-![image](https://user-images.githubusercontent.com/292349/115295327-7afdce80-a10e-11eb-89b3-2591262bf95a.png)
-
-## Day
-
-![image](https://user-images.githubusercontent.com/292349/115996270-78c6c480-a593-11eb-8ed0-7d1400b058f5.png)
+A dark and light Neovim theme written in Lua ported from the Vim [bogster](https://github.com/enkia/tokyo-night-vscode-theme) theme. Includes extra themes for Kitty, Alacritty, iTerm and Fish.
 
 ## ✨ Features
 
