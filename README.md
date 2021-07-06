@@ -1,6 +1,6 @@
 # 🏙Bogster
 
-A dark and light Neovim theme written in Lua ported from the Vim [bogster](https://github.com/enkia/tokyo-night-vscode-theme) theme. Includes extra themes for Kitty, Alacritty, iTerm and Fish.
+A dark and light Neovim theme written in Lua ported from the Vim [bogster](https://github.com/wojciechkepka/bogster) theme. Includes extra themes for Kitty, Alacritty, iTerm and Fish.
 
 ## ✨ Features
 
