@@ -46,6 +46,7 @@ function M.setup(config)
     colors.bg = colors.base0
     colors.fg = colors.fg1
     colors.comment = colors.base5
+    colors.terminal_black = util.darken(colors.base0, 0.85, "#000000")
   end
   util.bg = colors.bg
   util.day_brightness = config.dayBrightness
