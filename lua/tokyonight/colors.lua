@@ -66,22 +66,25 @@ function M.setup(config)
   colors.git.ignore = colors.base4
   colors.black = util.darken(colors.bg, 0.8, "#000000")
   colors.border_highlight = colors.base2
-  colors.border = colors.black
+  colors.border = colors.base2
 
   -- Popups and statusline always get a dark background
   colors.bg_popup = util.darken(colors.base0, 0.15)
   colors.bg_statusline = util.darken(colors.base0, 0.15)
 
   -- Sidebar and Floats are configurable
-  colors.bg_sidebar = config.darkSidebar and util.darken(colors.base0, 0.15) or colors.bg
-  colors.bg_float = config.darkFloat and util.darken(colors.base0, 0.15) or colors.bg
+  -- colors.bg_sidebar = config.darkSidebar and util.darken(colors.base0, 0.15) or colors.bg
+  -- colors.bg_float = config.darkFloat and util.darken(colors.base0, 0.15) or colors.bg
+  colors.bg_sidebar = util.darken(colors.bg, 0.85)
+  colors.bg_float = util.darken(colors.bg, 0.85)
 
-  colors.bg_visual = util.lighten(colors.bg, 0.7)
+  -- colors.bg_visual = util.lighten(colors.bg, 0.95)
+  colors.bg_visual = colors.base1
   colors.bg_search = util.lighten(colors.bg, 0.7)
   colors.bg_highlight = util.lighten(colors.bg, 0.7)
   colors.fg_sidebar = colors.fg0
 
-  colors.error = colors.light_red
+  colors.error = util.darken(colors.red, 0.8)
   colors.warning = colors.yellow
   colors.info = colors.blue
   colors.hint = colors.teal

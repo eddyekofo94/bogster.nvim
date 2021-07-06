@@ -17,12 +17,12 @@ function M.setup(config)
   theme.base = {
     Comment = { fg = c.comment, style = config.commentStyle }, -- any comment
     ColorColumn = { bg = c.bg_visual }, -- used for the columns set with 'colorcolumn'
-    Conceal = { fg = c.base5 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor = { fg = c.bg, bg = c.fg }, -- character under the cursor
-    lCursor = { fg = c.bg, bg = c.fg }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM = { fg = c.bg, bg = c.fg }, -- like Cursor, but used when in IME mode |CursorIM|
-    CursorColumn = { bg = c.bg_highlight }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorLine = { bg = c.bg_highlight }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    Conceal = { fg = c.bg_visual }, -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor = { bg = c.bg_visual }, -- character under the cursor
+    lCursor = { bg = c.bg_visual }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM = { bg = c.bg_visual }, -- like Cursor, but used when in IME mode |CursorIM|
+    CursorColumn = { bg = c.bg_visual }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorLine = { bg = c.bg_visual }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Directory = { fg = c.blue }, -- directory names (and other special names in listings)
     DiffAdd = { bg = c.diff.add }, -- diff mode: Added line |diff.txt|
     DiffChange = { bg = c.diff.change }, -- diff mode: Changed line |diff.txt|
@@ -33,31 +33,31 @@ function M.setup(config)
     -- TermCursorNC= { }, -- cursor in an unfocused terminal
     ErrorMsg = { fg = c.error }, -- error messages on the command line
     VertSplit = { fg = c.border }, -- the column separating vertically split windows
-    Folded = { fg = c.blue, bg = c.fg0 }, -- line used for closed folds
-    FoldColumn = { bg = c.bg, fg = c.comment }, -- 'foldcolumn'
+    Folded = { fg = c.blue, bg = c.bg_visual }, -- line used for closed folds
+    FoldColumn = { bg = c.bg, fg = c.base1 }, -- 'foldcolumn'
     SignColumn = { bg = config.transparent and c.none or c.bg, fg = c.fg0 }, -- column where |signs| are displayed
     SignColumnSB = { bg = c.bg_sidebar, fg = c.fg0 }, -- column where |signs| are displayed
     Substitute = { bg = c.red, fg = c.black }, -- |:substitute| replacement text highlighting
-    LineNr = { fg = c.fg0 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr = { fg = c.base4 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    LineNr = { fg = c.base4 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr = { fg = c.fg0 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen = { fg = c.orange, style = "bold" }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = { fg = c.fg0, style = "bold" }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea = { fg = c.fg0 }, -- Area for messages and cmdline
     -- MsgSeparator= { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = c.blue }, -- |more-prompt|
-    NonText = { fg = c.base5 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NonText = { fg = c.base2 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal = { fg = c.fg, bg = config.transparent and c.none or c.bg }, -- normal text
     NormalNC = { fg = c.fg, bg = config.transparent and c.none or c.bg }, -- normal text in non-current windows
     NormalSB = { fg = c.fg_sidebar, bg = c.bg_sidebar }, -- normal text in non-current windows
     NormalFloat = { fg = c.fg, bg = c.bg_float }, -- Normal text in floating windows.
     FloatBorder = { fg = c.border_highlight },
-    Pmenu = { bg = c.bg_popup, fg = c.fg }, -- Popup menu: normal item.
+    Pmenu = { bg = c.bg_popup, fg = c.base8 }, -- Popup menu: normal item.
     PmenuSel = { bg = util.darken(c.fg0, 0.8) }, -- Popup menu: selected item.
     PmenuSbar = { bg = util.lighten(c.bg_popup, 0.95) }, -- Popup menu: scrollbar.
-    PmenuThumb = { bg = c.fg0 }, -- Popup menu: Thumb of the scrollbar.
+    PmenuThumb = { bg = c.base4 }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = c.blue }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { bg = c.bg_visual, style = "bold" }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = { bg = c.bg_search, fg = c.fg }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    Search = { style = "reverse" }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     IncSearch = { bg = c.orange, fg = c.black }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     SpecialKey = { fg = c.base5 }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     SpellBad = { sp = c.error, style = "undercurl" }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
@@ -70,10 +70,10 @@ function M.setup(config)
     TabLineFill = { bg = c.black }, -- tab pages line, where there are no labels
     TabLineSel = { fg = c.black, bg = c.blue }, -- tab pages line, active tab page label
     Title = { fg = c.blue, style = "bold" }, -- titles for output from ":set all", ":autocmd" etc.
-    Visual = { bg = c.bg_visual }, -- Visual mode selection
-    VisualNOS = { bg = c.bg_visual }, -- Visual mode selection when vim is "Not Owning the Selection".
+    Visual = { style = "reverse" }, -- Visual mode selection
+    VisualNOS = { style = "reverse" }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = c.warning }, -- warning messages
-    Whitespace = { fg = c.fg0 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+    Whitespace = { fg = c.base2 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     WildMenu = { bg = c.bg_visual }, -- current match in 'wildmenu' completion
 
     -- These groups are not listed as default vim groups,
@@ -106,12 +106,12 @@ function M.setup(config)
     -- Macro         = { }, --    same as Define
     -- PreCondit     = { }, --  preprocessor #if, #else, #endif, etc.
 
-    Type = { fg = c.base2 }, -- (preferred) int, long, char, etc.
+    Type = { fg = c.yellow }, -- (preferred) int, long, char, etc.
     -- StorageClass  = { }, -- static, register, volatile, etc.
     -- Structure     = { }, --  struct, union, enum, etc.
     -- Typedef       = { }, --  A typedef
 
-    Special = { fg = c.base2 }, -- (preferred) any special symbol
+    Special = { fg = c.blue }, -- (preferred) any special symbol
     -- SpecialChar   = { }, --  special character in a constant
     -- Tag           = { }, --    you can use CTRL-] on this
     -- Delimiter     = { }, --  character that needs attention
@@ -200,47 +200,47 @@ function M.setup(config)
     TSNote = { fg = c.bg, bg = c.info },
     TSWarning = { fg = c.bg, bg = c.warning },
     TSDanger = { fg = c.bg, bg = c.error },
-    TSConstructor = { fg = c.pink }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+    TSConstructor = { fg = c.teal }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     -- TSConditional       = { };    -- For keywords related to conditionnals.
-    -- TSConstant          = { };    -- For constants
+    TSConstant = { fg = c.yellow }, -- For constants
     -- TSConstBuiltin      = { };    -- For constant that are built in the language: `nil` in Lua.
     -- TSConstMacro        = { };    -- For constants that are defined by macros: `NULL` in C.
     -- TSError             = { };    -- For syntax/parser errors.
     -- TSException         = { };    -- For exception related keywords.
-    TSField = { fg = c.light_green }, -- For fields.
+    TSField = { fg = c.teal }, -- For fields.
     -- TSFloat             = { };    -- For floats.
     -- TSFunction          = { };    -- For function (calls and definitions).
     -- TSFuncBuiltin       = { };    -- For builtin functions: `table.insert` in Lua.
     -- TSFuncMacro         = { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    -- TSInclude           = { };    -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
+    TSInclude = { fg = c.blue }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
     TSKeyword = { fg = c.purple, style = config.keywordStyle }, -- For keywords that don't fall in previous categories.
-    TSKeywordFunction = { fg = c.pink, style = config.functionStyle }, -- For keywords used to define a fuction.
+    TSKeywordFunction = { fg = c.purple, style = config.functionStyle }, -- For keywords used to define a fuction.
     TSLabel = { fg = c.blue }, -- For labels: `label:` in C and `:label:` in Lua.
     -- TSMethod            = { };    -- For method calls and definitions.
-    -- TSNamespace         = { };    -- For identifiers referring to modules and namespaces.
+    TSNamespace = { fg = c.light_red }, -- For identifiers referring to modules and namespaces.
     -- TSNone              = { };    -- TODO: docs
     -- TSNumber            = { };    -- For all numbers
     TSOperator = { fg = c.base6 }, -- For any operator: `+`, but also `->` and `*` in C.
     TSParameter = { fg = c.yellow }, -- For parameters of a function.
     -- TSParameterReference= { };    -- For references to parameters of a function.
-    TSProperty = { fg = c.light_green }, -- Same as `TSField`.
+    TSProperty = { fg = c.light_red }, -- Same as `TSField`.
     TSPunctDelimiter = { fg = c.base6 }, -- For delimiters ie: `.`
-    TSPunctBracket = { fg = c.fg0 }, -- For brackets and parens.
-    TSPunctSpecial = { fg = c.base6 }, -- For special punctutation that does not fall in the catagories before.
+    TSPunctBracket = { fg = c.orange }, -- For brackets and parens.
+    TSPunctSpecial = { fg = c.orange }, -- For special punctutation that does not fall in the catagories before.
     -- TSRepeat            = { };    -- For keywords related to loops.
     -- TSString            = { };    -- For strings.
-    TSStringRegex = { fg = c.base7 }, -- For regexes.
+    TSStringRegex = { fg = c.orange }, -- For regexes.
     TSStringEscape = { fg = c.pink }, -- For escape characters within a string.
     -- TSSymbol            = { };    -- For identifiers referring to symbols or atoms.
     -- TSType              = { };    -- For types.
     -- TSTypeBuiltin       = { };    -- For builtin types.
     TSVariable = { style = config.variableStyle }, -- Any variable name that does not have another highlight.
-    TSVariableBuiltin = { fg = c.red }, -- Variable names that are defined by the languages, like `this` or `self`.
+    TSVariableBuiltin = { fg = c.teal }, -- Variable names that are defined by the languages, like `this` or `self`.
 
-    -- TSTag               = { };    -- Tags like html tag names.
+    TSTag = { fg = c.red }, -- Tags like html tag names.
     -- TSTagDelimiter      = { };    -- Tag delimiter like `<` `>` `/`
     -- TSText              = { };    -- For strings considered text in a markup language.
-    TSTextReference = { fg = c.teal },
+    TSTextReference = { fg = c.red },
     -- TSEmphasis          = { };    -- For text to be represented with emphasis.
     -- TSUnderline         = { };    -- For text to be represented with an underline.
     -- TSStrike            = { };    -- For strikethrough text.
@@ -291,6 +291,11 @@ function M.setup(config)
 
     -- Telescope
     TelescopeBorder = { fg = c.border_highlight },
+    TelescopePromptBorder = { fg = c.border_highlight },
+    TelescopeResultsBorder = { fg = c.bg_highlight },
+    TelescopeSelectionCaret = { fg = c.purple },
+    TelescopeSelection = { fg = c.yellow, bg = c.bg_visual },
+    TelescopeMatching = { fg = c.blue },
 
     -- NvimTree
     NvimTreeNormal = { fg = c.fg_sidebar, bg = c.bg_sidebar },
@@ -303,7 +308,7 @@ function M.setup(config)
     LspDiagnosticsWarning = { fg = c.warning },
     LspDiagnosticsInformation = { fg = c.info },
     LspDiagnosticsHint = { fg = c.hint },
-    NvimTreeIndentMarker = { fg = c.fg0 },
+    NvimTreeIndentMarker = { fg = c.base4 },
     NvimTreeImageFile = { fg = c.fg_sidebar },
     NvimTreeSymlink = { fg = c.blue },
     -- NvimTreeFolderName= { fg = c.fg_float },
@@ -341,8 +346,8 @@ function M.setup(config)
     DiagnosticInformation = { fg = c.info },
     DiagnosticHint = { fg = c.hint },
 
-    LspFloatWinNormal = { bg = c.base1 },
-    LspFloatWinBorder = { fg = c.border_highlight },
+    LspFloatWinNormal = { bg = c.bg_popup },
+    LspFloatWinBorder = { fg = c.border },
     LspSagaBorderTitle = { fg = c.teal },
     LspSagaHoverBorder = { fg = c.blue },
     LspSagaRenameBorder = { fg = c.green },
