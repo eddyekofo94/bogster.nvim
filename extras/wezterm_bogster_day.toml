@@ -1,0 +1,12 @@
+[colors]
+foreground = "${fg}"
+background = "#1a1b26"
+cursor_bg = "${fg}"
+cursor_border = "${fg}"
+cursor_fg = "#1a1b26"
+selection_bg = "#232d38"
+selection_fg = "${fg}"
+
+ansi = ["#15161E", "#d32c5d", "#5dd32c", "#dcb659", "#59c0dc", "${magenta}", "${cyan}", "${fg_dark}"]
+brights = ["${terminal_black}", "#d32c5d", "#5dd32c", "#dcb659", "#59c0dc", "${magenta}", "${cyan}", "${fg}"]
+  
