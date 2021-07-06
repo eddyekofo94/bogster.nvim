@@ -85,7 +85,7 @@ function M.setup(config)
   colors.bg_highlight = util.lighten(colors.bg, 0.7)
   colors.fg_sidebar = colors.fg0
 
-  colors.error = util.darken(colors.red, 0.8)
+  colors.error ="#e50000"
   colors.warning = colors.yellow
   colors.info = colors.blue
   colors.hint = colors.teal
