@@ -88,16 +88,9 @@ let g:lightline = {'colorscheme': 'bogster'}
 
 > ❗️ configuration needs to be set **BEFORE** loading the color scheme with `colorscheme bogster`
 
-The theme comes in three styles, `storm`, a darker variant `night` and `day`.
-
-The **day** style will be used if:
-
-- `vim.g.bogster_style == "day"`
-- or `vim.o.background == "light"`
 
 | Option                              | Default   | Description                                                                                                                                                     |
 | ----------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bogster_style                    | `"storm"` | The theme comes in three styles, `storm`, a darker variant `night` and `day`.                                                                                   |
 | bogster_terminal_colors          | `true`    | Configure the colors used when opening a `:terminal` in Neovim                                                                                                  |
 | bogster_italic_comments          | `true`    | Make comments italic                                                                                                                                            |
 | bogster_italic_keywords          | `true`    | Make keywords italic                                                                                                                                            |
@@ -109,12 +102,10 @@ The **day** style will be used if:
 | bogster_dark_sidebar             | `true`    | Sidebar like windows like `NvimTree` get a darker background                                                                                                    |
 | bogster_dark_float               | `true`    | Float windows like the lsp diagnostics windows get a darker background.                                                                                         |
 | bogster_colors                   | `{}`      | You can override specific color groups to use other groups or a hex color                                                                                       |
-| bogster_day_brightness           | `0.3`     | Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors                                                  |
 | bogster_lualine_bold             | `false`   | When `true`, section headers in the lualine theme will be bold                                                                                                  |
 
 ```lua
 -- Example config in Lua
-vim.g.bogster_style = "night"
 vim.g.bogster_italic_functions = true
 vim.g.bogster_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 
@@ -127,7 +118,6 @@ vim.cmd[[colorscheme bogster]]
 
 ```vim
 " Example config in VimScript
-let g:bogster_style = "night"
 let g:bogster_italic_functions = 1
 let g:bogster_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
 
