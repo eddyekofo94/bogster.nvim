@@ -1,4 +1,4 @@
-local util = require("tokyonight.util")
+local util = require("bogster.util")
 
 local M = {}
 
@@ -13,7 +13,7 @@ function M.generate(colors)
 
   local alacritty = util.template(
     [[
-# TokyoNight Alacritty Colors
+# bogster Alacritty Colors
 colors:
   # Default colors
   primary:
@@ -45,7 +45,7 @@ colors:
   indexed_colors:
     - { index: 16, color: '${orange}' }
     - { index: 17, color: '${red1}' }
-    
+
   ]],
     alacrittyColors
   )

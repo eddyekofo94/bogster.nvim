@@ -1,4 +1,4 @@
-local util = require("tokyonight.util")
+local util = require("bogster.util")
 
 local M = {}
 
@@ -13,7 +13,7 @@ function M.generate(colors)
 
   local fish = util.template(
     [[
-    # TokyoNight Color Palette
+    # bogster Color Palette
     set -l foreground ${fg}
     set -l selection ${bg_visual}
     set -l comment ${comment}
@@ -24,7 +24,7 @@ function M.generate(colors)
     set -l purple ${purple}
     set -l cyan ${cyan}
     set -l pink ${magenta}
-    
+
     # Syntax Highlighting Colors
     set -g fish_color_normal $foreground
     set -g fish_color_command $cyan
@@ -40,13 +40,13 @@ function M.generate(colors)
     set -g fish_color_operator $green
     set -g fish_color_escape $pink
     set -g fish_color_autosuggestion $comment
-    
+
     # Completion Pager Colors
     set -g fish_pager_color_progress $comment
     set -g fish_pager_color_prefix $cyan
     set -g fish_pager_color_completion $foreground
     set -g fish_pager_color_description $comment
-    
+
   ]],
     fishColors
   )
