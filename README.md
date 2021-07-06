@@ -2,6 +2,7 @@
 
 A dark and light Neovim theme written in Lua ported from the Vim [bogster](https://github.com/wojciechkepka/bogster) theme. Includes extra themes for Kitty, Alacritty, iTerm and Fish.
 
+<img width="1680" alt="rust code" src="./media/bogster_cpp.png">
 ## ✨ Features
 
 - supports the latest Neovim 5.0 features like TreeSitter and LSP
