@@ -1,43 +1,43 @@
-local config = require("tokyonight.config")
-local colors = require("tokyonight.colors").setup(config)
-local util = require("tokyonight.util")
+local config = require("bogster.config")
+local colors = require("bogster.colors").setup(config)
+local util = require("bogster.util")
 
-local tokyonight = {}
+local bogster = {}
 
-tokyonight.normal = {
+bogster.normal = {
   a = { bg = colors.blue, fg = colors.black },
   b = { bg = colors.fg0, fg = colors.blue },
   c = { bg = colors.bg_statusline, fg = colors.fg_sidebar },
 }
 
-tokyonight.insert = {
+bogster.insert = {
   a = { bg = colors.green, fg = colors.black },
   b = { bg = colors.fg0, fg = colors.green },
 }
 
-tokyonight.command = {
+bogster.command = {
   a = { bg = colors.yellow, fg = colors.black },
   b = { bg = colors.fg0, fg = colors.yellow },
 }
 
-tokyonight.visual = {
+bogster.visual = {
   a = { bg = colors.pink, fg = colors.black },
   b = { bg = colors.fg0, fg = colors.pink },
 }
 
-tokyonight.replace = {
+bogster.replace = {
   a = { bg = colors.red, fg = colors.black },
   b = { bg = colors.fg0, fg = colors.red },
 }
 
-tokyonight.inactive = {
+bogster.inactive = {
   a = { bg = colors.bg_statusline, fg = colors.blue },
   b = { bg = colors.bg_statusline, fg = colors.fg0, gui = "bold" },
   c = { bg = colors.bg_statusline, fg = colors.fg0 },
 }
 
 if vim.o.background == "light" then
-  for _, mode in pairs(tokyonight) do
+  for _, mode in pairs(bogster) do
     for _, section in pairs(mode) do
       if section.bg then
         section.bg = util.getColor(section.bg)
@@ -49,10 +49,10 @@ if vim.o.background == "light" then
   end
 end
 
-if vim.g.tokyonight_lualine_bold then
-  for _, mode in pairs(tokyonight) do
+if vim.g.bogster_lualine_bold then
+  for _, mode in pairs(bogster) do
     mode.a.gui = "bold"
   end
 end
 
-return tokyonight
+return bogster

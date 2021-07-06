@@ -1,11 +1,11 @@
-local util = require("tokyonight.util")
+local util = require("bogster.util")
 
 local M = {}
 
 ---@param config Config
 ---@return ColorScheme
 function M.setup(config)
-  config = config or require("tokyonight.config")
+  config = config or require("bogster.config")
 
   -- Color Palette
   ---@class ColorScheme
