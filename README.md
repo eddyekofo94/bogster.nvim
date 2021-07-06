@@ -43,13 +43,13 @@ Install the theme with your preferred package manager:
 [vim-plug](https://github.com/junegunn/vim-plug)
 
 ```vim
-Plug 'folke/bogster.nvim'
+Plug 'eddyekofo94/bogster.nvim'
 ```
 
 [packer](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use 'folke/bogster.nvim'
+use 'eddyekofo94/bogster.nvim'
 ```
 
 ## 🚀 Usage
