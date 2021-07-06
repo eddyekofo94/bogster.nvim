@@ -43,12 +43,9 @@ function M.setup(config)
   if config.style == "night" or config.style == "day" or vim.o.background == "light" then
     colors.bg = "#1a1b26"
   else
-    colors = {
-      bg = colors.base0,
-      fg = colors.fg1,
-      comment = colors.base5,
-      terminal_black = util.lighten(colors.base0, 0.8)
-    }
+    colors.bg = colors.base0
+    colors.fg = colors.fg1
+    colors.comment = colors.base5
   end
   util.bg = colors.bg
   util.day_brightness = config.dayBrightness
